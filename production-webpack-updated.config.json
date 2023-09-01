@@ -1,42 +1,12 @@
 {
-  "devServer": {
-    "host": "localhost",
-    "port": 4200,
-    "headers": {
-      "Access-Control-Allow-Origin": "*"
-    },
-    "historyApiFallback": {
-      "index": "/index.html",
-      "disableDotRule": true,
-      "htmlAcceptHeaders": [
-        "text/html",
-        "application/xhtml+xml"
-      ]
-    },
-    "open": false,
-    "static": false,
-    "compress": false,
-    "devMiddleware": {
-      "publicPath": "/",
-      "stats": false
-    },
-    "client": {
-      "overlay": {
-        "errors": true,
-        "warnings": false
-      }
-    },
-    "liveReload": false,
-    "hot": true
-  },
   "context": "/Users/mwarger/dev/scratch/org/test-app",
   "target": "web",
   "node": {
     "__dirname": true,
     "__filename": true
   },
-  "mode": "development",
-  "devtool": "source-map",
+  "mode": "production",
+  "devtool": false,
   "entry": {
     "main": [
       "/Users/mwarger/dev/scratch/org/test-app/src/main.tsx"
@@ -47,8 +17,8 @@
   },
   "output": {
     "path": "/Users/mwarger/dev/scratch/org/dist/test-app",
-    "filename": "[name].js",
-    "chunkFilename": "[name].js",
+    "filename": "[name].[contenthash:20].js",
+    "chunkFilename": "[name].[chunkhash:20].js",
     "hashFunction": "xxhash64",
     "pathinfo": false,
     "scriptType": "module",
@@ -65,7 +35,9 @@
       ".js",
       ".jsx"
     ],
-    "alias": {},
+    "alias": {
+      "/Users/mwarger/dev/scratch/org/test-app/src/environments/environment.ts": "/Users/mwarger/dev/scratch/org/test-app/src/environments/environment.prod.ts"
+    },
     "plugins": [
       {
         "source": "described-resolve",
@@ -91,7 +63,7 @@
   "externals": [],
   "optimization": {
     "sideEffects": true,
-    "minimize": false,
+    "minimize": true,
     "minimizer": [
       {
         "options": {
@@ -118,6 +90,15 @@
           "hashDigest": "base64",
           "hashDigestLength": 4
         }
+      },
+      {
+        "options": {
+          "test": {},
+          "parallel": true,
+          "minimizer": {
+            "options": {}
+          }
+        }
       }
     ],
     "runtimeChunk": "single",
@@ -140,11 +121,7 @@
           "priority": 5
         },
         "vendors": false,
-        "vendor": {
-          "name": "vendor",
-          "enforce": true,
-          "test": {}
-        }
+        "vendor": false
       }
     }
   },
@@ -160,11 +137,6 @@
   "module": {
     "unsafeCache": true,
     "rules": [
-      {
-        "test": {},
-        "enforce": "pre",
-        "loader": "/Users/mwarger/dev/scratch/org/node_modules/source-map-loader/dist/cjs.js"
-      },
       {
         "test": {},
         "resolve": {
@@ -184,18 +156,10 @@
           "emitDecoratorMetadata": true,
           "isModern": true,
           "isTest": false,
-          "envName": "development",
+          "envName": "production",
           "cacheDirectory": true,
           "cacheCompression": false,
-          "configFile": "/Users/mwarger/dev/scratch/org/test-app/.babelrc",
-          "plugins": [
-            [
-              "/Users/mwarger/dev/scratch/org/node_modules/react-refresh/babel.js",
-              {
-                "skipEnvCheck": true
-              }
-            ]
-          ]
+          "configFile": "/Users/mwarger/dev/scratch/org/test-app/.babelrc"
         }
       },
       {
@@ -207,14 +171,14 @@
           }
         },
         "generator": {
-          "filename": "[name][ext]"
+          "filename": "[name].[contenthash:20][ext]"
         }
       },
       {
         "test": {},
         "type": "asset/resource",
         "generator": {
-          "filename": "[name][ext]"
+          "filename": "[name].[contenthash:20][ext]"
         }
       },
       {
@@ -427,7 +391,7 @@
                       "value": false
                     }
                   },
-                  "sourceMap": true,
+                  "sourceMap": false,
                   "sassOptions": {
                     "fiber": false,
                     "precision": 8,
@@ -459,7 +423,7 @@
               {
                 "loader": "/Users/mwarger/dev/scratch/org/node_modules/less-loader/dist/cjs.js",
                 "options": {
-                  "sourceMap": true,
+                  "sourceMap": false,
                   "lessOptions": {
                     "javascriptEnabled": true
                   }
@@ -489,7 +453,7 @@
               {
                 "loader": "/Users/mwarger/dev/scratch/org/node_modules/stylus-loader/dist/cjs.js",
                 "options": {
-                  "sourceMap": true,
+                  "sourceMap": false,
                   "stylusOptions": {
                     "include": []
                   }
@@ -567,7 +531,7 @@
                       "value": false
                     }
                   },
-                  "sourceMap": true,
+                  "sourceMap": false,
                   "sassOptions": {
                     "fiber": false,
                     "precision": 8,
@@ -602,7 +566,7 @@
               {
                 "loader": "/Users/mwarger/dev/scratch/org/node_modules/less-loader/dist/cjs.js",
                 "options": {
-                  "sourceMap": true,
+                  "sourceMap": false,
                   "lessOptions": {
                     "javascriptEnabled": true
                   }
@@ -635,7 +599,7 @@
               {
                 "loader": "/Users/mwarger/dev/scratch/org/node_modules/stylus-loader/dist/cjs.js",
                 "options": {
-                  "sourceMap": true,
+                  "sourceMap": false,
                   "stylusOptions": {
                     "include": []
                   }
@@ -677,6 +641,16 @@
       }
     },
     {
+      "pluginOptions": {
+        "stats": {
+          "warnings": false,
+          "errors": false
+        },
+        "perChunkOutput": false,
+        "outputFilename": "3rdpartylicenses.txt"
+      }
+    },
+    {
       "patterns": [
         {
           "context": "/Users/mwarger/dev/scratch/org/test-app/src",
@@ -713,37 +687,35 @@
           "NX_CLI_SET": "\"true\"",
           "NX_LOAD_DOT_ENV_FILES": "\"true\"",
           "NX_WORKSPACE_ROOT": "\"/Users/mwarger/dev/scratch/org\"",
-          "NX_TERMINAL_OUTPUT_PATH": "\"/Users/mwarger/dev/scratch/org/node_modules/.cache/nx/terminalOutputs/12233489491264668195\"",
+          "NX_TERMINAL_OUTPUT_PATH": "\"/Users/mwarger/dev/scratch/org/node_modules/.cache/nx/terminalOutputs/17576106544445520876\"",
           "NX_STREAM_OUTPUT": "\"true\"",
           "NX_TASK_TARGET_PROJECT": "\"test-app\"",
-          "NX_TASK_TARGET_TARGET": "\"serve\"",
-          "NX_TASK_TARGET_CONFIGURATION": "\"development\"",
-          "NX_TASK_HASH": "\"12233489491264668195\""
+          "NX_TASK_TARGET_TARGET": "\"build\"",
+          "NX_TASK_TARGET_CONFIGURATION": "\"production\"",
+          "NX_TASK_HASH": "\"17576106544445520876\""
         }
       }
     },
     {
       "_sortedModulesCache": {},
       "options": {
-        "filename": "[name].css",
+        "filename": "[name].[contenthash:20].css",
         "ignoreOrder": false,
         "runtime": true,
-        "chunkFilename": "[name].css"
+        "chunkFilename": "[name].[contenthash:20].css"
       },
       "runtimeOptions": {
         "linkType": "text/css"
       }
     },
     {
-      "options": {
-        "exclude": {},
-        "include": {},
-        "overlay": {
-          "entry": "/Users/mwarger/dev/scratch/org/node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ErrorOverlayEntry.js",
-          "module": "/Users/mwarger/dev/scratch/org/node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js",
-          "sockIntegration": "wds"
+      "userOptions": {
+        "template": "src/index.html",
+        "templateParameters": {
+          "mything": "mything"
         }
-      }
+      },
+      "version": 5
     }
   ],
   "stats": {

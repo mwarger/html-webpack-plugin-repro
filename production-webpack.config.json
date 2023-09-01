@@ -687,12 +687,12 @@
           "NX_CLI_SET": "\"true\"",
           "NX_LOAD_DOT_ENV_FILES": "\"true\"",
           "NX_WORKSPACE_ROOT": "\"/Users/mwarger/dev/scratch/org\"",
-          "NX_TERMINAL_OUTPUT_PATH": "\"/Users/mwarger/dev/scratch/org/node_modules/.cache/nx/terminalOutputs/11758782217726470326\"",
+          "NX_TERMINAL_OUTPUT_PATH": "\"/Users/mwarger/dev/scratch/org/node_modules/.cache/nx/terminalOutputs/17576106544445520876\"",
           "NX_STREAM_OUTPUT": "\"true\"",
           "NX_TASK_TARGET_PROJECT": "\"test-app\"",
           "NX_TASK_TARGET_TARGET": "\"build\"",
           "NX_TASK_TARGET_CONFIGURATION": "\"production\"",
-          "NX_TASK_HASH": "\"11758782217726470326\""
+          "NX_TASK_HASH": "\"17576106544445520876\""
         }
       }
     },
@@ -707,15 +707,6 @@
       "runtimeOptions": {
         "linkType": "text/css"
       }
-    },
-    {
-      "userOptions": {
-        "template": "src/index.html",
-        "templateParameters": {
-          "mything": "mything"
-        }
-      },
-      "version": 5
     }
   ],
   "stats": {

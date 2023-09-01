@@ -1,0 +1,769 @@
+{
+  "devServer": {
+    "host": "localhost",
+    "port": 4200,
+    "headers": {
+      "Access-Control-Allow-Origin": "*"
+    },
+    "historyApiFallback": {
+      "index": "/index.html",
+      "disableDotRule": true,
+      "htmlAcceptHeaders": [
+        "text/html",
+        "application/xhtml+xml"
+      ]
+    },
+    "open": false,
+    "static": false,
+    "compress": false,
+    "devMiddleware": {
+      "publicPath": "/",
+      "stats": false
+    },
+    "client": {
+      "overlay": {
+        "errors": true,
+        "warnings": false
+      }
+    },
+    "liveReload": false,
+    "hot": true
+  },
+  "context": "/Users/mwarger/dev/scratch/org/test-app",
+  "target": "web",
+  "node": {
+    "__dirname": true,
+    "__filename": true
+  },
+  "mode": "development",
+  "devtool": "source-map",
+  "entry": {
+    "main": [
+      "/Users/mwarger/dev/scratch/org/test-app/src/main.tsx"
+    ],
+    "styles": [
+      "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+    ]
+  },
+  "output": {
+    "path": "/Users/mwarger/dev/scratch/org/dist/test-app",
+    "filename": "[name].js",
+    "chunkFilename": "[name].js",
+    "hashFunction": "xxhash64",
+    "pathinfo": false,
+    "scriptType": "module",
+    "crossOriginLoading": false
+  },
+  "watch": false,
+  "watchOptions": {},
+  "profile": false,
+  "resolve": {
+    "extensions": [
+      ".ts",
+      ".tsx",
+      ".mjs",
+      ".js",
+      ".jsx"
+    ],
+    "alias": {},
+    "plugins": [
+      {
+        "source": "described-resolve",
+        "target": "resolve",
+        "extensions": [
+          ".ts",
+          ".tsx",
+          ".mjs",
+          ".js",
+          ".jsx"
+        ],
+        "log": {},
+        "baseUrl": "..",
+        "absoluteBaseUrl": "/Users/mwarger/dev/scratch/org"
+      }
+    ],
+    "mainFields": [
+      "browser",
+      "module",
+      "main"
+    ]
+  },
+  "externals": [],
+  "optimization": {
+    "sideEffects": true,
+    "minimize": false,
+    "minimizer": [
+      {
+        "options": {
+          "test": {},
+          "extractComments": false,
+          "parallel": true,
+          "minimizer": {
+            "options": {
+              "keep_classnames": true,
+              "ecma": 2020,
+              "safari10": true,
+              "format": {
+                "ascii_only": true,
+                "comments": false,
+                "webkit": true
+              }
+            }
+          }
+        }
+      },
+      {
+        "options": {
+          "hashFunction": "md4",
+          "hashDigest": "base64",
+          "hashDigestLength": 4
+        }
+      }
+    ],
+    "runtimeChunk": "single",
+    "concatenateModules": true,
+    "emitOnErrors": false,
+    "moduleIds": "deterministic",
+    "splitChunks": {
+      "maxAsyncRequests": null,
+      "cacheGroups": {
+        "default": {
+          "chunks": "async",
+          "minChunks": 2,
+          "priority": 10
+        },
+        "common": {
+          "name": "common",
+          "chunks": "async",
+          "minChunks": 2,
+          "enforce": true,
+          "priority": 5
+        },
+        "vendors": false,
+        "vendor": {
+          "name": "vendor",
+          "enforce": true,
+          "test": {}
+        }
+      }
+    }
+  },
+  "performance": {
+    "hints": false
+  },
+  "experiments": {
+    "cacheUnaffected": true
+  },
+  "ignoreWarnings": [
+    null
+  ],
+  "module": {
+    "unsafeCache": true,
+    "rules": [
+      {
+        "test": {},
+        "enforce": "pre",
+        "loader": "/Users/mwarger/dev/scratch/org/node_modules/source-map-loader/dist/cjs.js"
+      },
+      {
+        "test": {},
+        "resolve": {
+          "fullySpecified": false
+        }
+      },
+      {
+        "test": {},
+        "type": "javascript/auto"
+      },
+      {
+        "test": {},
+        "loader": "/Users/mwarger/dev/scratch/org/node_modules/@nx/webpack/src/utils/web-babel-loader",
+        "exclude": {},
+        "options": {
+          "cwd": "/Users/mwarger/dev/scratch/org/test-app/src",
+          "emitDecoratorMetadata": true,
+          "isModern": true,
+          "isTest": false,
+          "envName": "development",
+          "cacheDirectory": true,
+          "cacheCompression": false,
+          "configFile": "/Users/mwarger/dev/scratch/org/test-app/.babelrc",
+          "plugins": [
+            [
+              "/Users/mwarger/dev/scratch/org/node_modules/react-refresh/babel.js",
+              {
+                "skipEnvCheck": true
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "test": {},
+        "type": "asset",
+        "parser": {
+          "dataUrlCondition": {
+            "maxSize": 10000
+          }
+        },
+        "generator": {
+          "filename": "[name][ext]"
+        }
+      },
+      {
+        "test": {},
+        "type": "asset/resource",
+        "generator": {
+          "filename": "[name][ext]"
+        }
+      },
+      {
+        "test": {},
+        "oneOf": [
+          {
+            "test": {},
+            "exclude": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js"
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local"
+                  },
+                  "importLoaders": 1
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              }
+            ]
+          },
+          {
+            "test": {},
+            "exclude": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js"
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local"
+                  },
+                  "importLoaders": 1
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/sass-loader/dist/cjs.js",
+                "options": {
+                  "implementation": {
+                    "sassNull": {},
+                    "sassTrue": {
+                      "value": true
+                    },
+                    "sassFalse": {
+                      "value": false
+                    },
+                    "Logger": {
+                      "silent": {}
+                    },
+                    "info": "dart-sass\t1.66.1\t(Sass Compiler)\t[Dart]\ndart2js\t3.1.0\t(Dart Compiler)\t[Dart]",
+                    "types": {},
+                    "NULL": {},
+                    "TRUE": {
+                      "value": true
+                    },
+                    "FALSE": {
+                      "value": false
+                    }
+                  },
+                  "sassOptions": {
+                    "fiber": false,
+                    "precision": 8,
+                    "includePaths": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "test": {},
+            "exclude": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js"
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local"
+                  },
+                  "importLoaders": 1
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/less-loader/dist/cjs.js",
+                "options": {
+                  "lessOptions": {
+                    "paths": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "test": {},
+            "exclude": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js"
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "modules": {
+                    "mode": "local"
+                  },
+                  "importLoaders": 1
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/stylus-loader/dist/cjs.js",
+                "options": {
+                  "stylusOptions": {
+                    "include": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "test": {},
+            "exclude": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js"
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "url": false
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              }
+            ]
+          },
+          {
+            "test": {},
+            "exclude": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js"
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "url": false
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/sass-loader/dist/cjs.js",
+                "options": {
+                  "implementation": {
+                    "sassNull": {},
+                    "sassTrue": {
+                      "value": true
+                    },
+                    "sassFalse": {
+                      "value": false
+                    },
+                    "Logger": {
+                      "silent": {}
+                    },
+                    "info": "dart-sass\t1.66.1\t(Sass Compiler)\t[Dart]\ndart2js\t3.1.0\t(Dart Compiler)\t[Dart]",
+                    "types": {},
+                    "NULL": {},
+                    "TRUE": {
+                      "value": true
+                    },
+                    "FALSE": {
+                      "value": false
+                    }
+                  },
+                  "sourceMap": true,
+                  "sassOptions": {
+                    "fiber": false,
+                    "precision": 8,
+                    "includePaths": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "test": {},
+            "exclude": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js"
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "url": false
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/less-loader/dist/cjs.js",
+                "options": {
+                  "sourceMap": true,
+                  "lessOptions": {
+                    "javascriptEnabled": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "test": {},
+            "exclude": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js"
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "url": false
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/stylus-loader/dist/cjs.js",
+                "options": {
+                  "sourceMap": true,
+                  "stylusOptions": {
+                    "include": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "test": {},
+            "include": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js",
+                "options": {
+                  "esModule": true
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "url": false
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              }
+            ]
+          },
+          {
+            "test": {},
+            "include": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js",
+                "options": {
+                  "esModule": true
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "url": false
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/sass-loader/dist/cjs.js",
+                "options": {
+                  "implementation": {
+                    "sassNull": {},
+                    "sassTrue": {
+                      "value": true
+                    },
+                    "sassFalse": {
+                      "value": false
+                    },
+                    "Logger": {
+                      "silent": {}
+                    },
+                    "info": "dart-sass\t1.66.1\t(Sass Compiler)\t[Dart]\ndart2js\t3.1.0\t(Dart Compiler)\t[Dart]",
+                    "types": {},
+                    "NULL": {},
+                    "TRUE": {
+                      "value": true
+                    },
+                    "FALSE": {
+                      "value": false
+                    }
+                  },
+                  "sourceMap": true,
+                  "sassOptions": {
+                    "fiber": false,
+                    "precision": 8,
+                    "includePaths": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "test": {},
+            "include": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js",
+                "options": {
+                  "esModule": true
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "url": false
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/less-loader/dist/cjs.js",
+                "options": {
+                  "sourceMap": true,
+                  "lessOptions": {
+                    "javascriptEnabled": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "test": {},
+            "include": [
+              "/Users/mwarger/dev/scratch/org/test-app/src/styles.css"
+            ],
+            "use": [
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/mini-css-extract-plugin/dist/loader.js",
+                "options": {
+                  "esModule": true
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/css-loader/dist/cjs.js",
+                "options": {
+                  "url": false
+                }
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/postcss-loader/dist/cjs.js",
+                "options": {}
+              },
+              {
+                "loader": "/Users/mwarger/dev/scratch/org/node_modules/stylus-loader/dist/cjs.js",
+                "options": {
+                  "sourceMap": true,
+                  "stylusOptions": {
+                    "include": []
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "test": {},
+        "issuer": {},
+        "use": [
+          {
+            "loader": "/Users/mwarger/dev/scratch/org/node_modules/@svgr/webpack/dist/index.js",
+            "options": {
+              "svgo": false,
+              "titleProp": true,
+              "ref": true
+            }
+          },
+          {
+            "loader": "/Users/mwarger/dev/scratch/org/node_modules/file-loader/dist/cjs.js",
+            "options": {
+              "name": "[name].[hash].[ext]"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "plugins": [
+    {
+      "options": {
+        "typescript": {
+          "configFile": "/Users/mwarger/dev/scratch/org/test-app/tsconfig.app.json",
+          "memoryLimit": 2048
+        }
+      }
+    },
+    {
+      "patterns": [
+        {
+          "context": "/Users/mwarger/dev/scratch/org/test-app/src",
+          "to": "",
+          "from": "favicon.ico",
+          "globOptions": {
+            "ignore": [
+              ".gitkeep",
+              "**/.DS_Store",
+              "**/Thumbs.db"
+            ],
+            "dot": true
+          }
+        },
+        {
+          "context": "/Users/mwarger/dev/scratch/org/test-app/src/assets",
+          "to": "assets",
+          "from": "**/*",
+          "globOptions": {
+            "ignore": [
+              ".gitkeep",
+              "**/.DS_Store",
+              "**/Thumbs.db"
+            ],
+            "dot": true
+          }
+        }
+      ],
+      "options": {}
+    },
+    {
+      "definitions": {
+        "process.env": {
+          "NX_CLI_SET": "\"true\"",
+          "NX_LOAD_DOT_ENV_FILES": "\"true\"",
+          "NX_WORKSPACE_ROOT": "\"/Users/mwarger/dev/scratch/org\"",
+          "NX_TERMINAL_OUTPUT_PATH": "\"/Users/mwarger/dev/scratch/org/node_modules/.cache/nx/terminalOutputs/1550325975748758445\"",
+          "NX_STREAM_OUTPUT": "\"true\"",
+          "NX_TASK_TARGET_PROJECT": "\"test-app\"",
+          "NX_TASK_TARGET_TARGET": "\"serve\"",
+          "NX_TASK_TARGET_CONFIGURATION": "\"development\"",
+          "NX_TASK_HASH": "\"1550325975748758445\""
+        }
+      }
+    },
+    {
+      "_sortedModulesCache": {},
+      "options": {
+        "filename": "[name].css",
+        "ignoreOrder": false,
+        "runtime": true,
+        "chunkFilename": "[name].css"
+      },
+      "runtimeOptions": {
+        "linkType": "text/css"
+      }
+    },
+    {
+      "options": {
+        "exclude": {},
+        "include": {},
+        "overlay": {
+          "entry": "/Users/mwarger/dev/scratch/org/node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ErrorOverlayEntry.js",
+          "module": "/Users/mwarger/dev/scratch/org/node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js",
+          "sockIntegration": "wds"
+        }
+      }
+    }
+  ],
+  "stats": {
+    "hash": true,
+    "timings": false,
+    "cached": false,
+    "cachedAssets": false,
+    "modules": false,
+    "warnings": true,
+    "errors": true,
+    "colors": true,
+    "chunks": true,
+    "assets": false,
+    "chunkOrigins": false,
+    "chunkModules": false,
+    "children": false,
+    "reasons": false,
+    "version": false,
+    "errorDetails": false,
+    "moduleTrace": false,
+    "usedExports": false
+  }
+}
